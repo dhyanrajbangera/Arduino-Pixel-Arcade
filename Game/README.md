@@ -1,56 +1,72 @@
-🎮 Game – Arduino Pixel Arcade
+Game Application
 
-This folder contains the main browser-based arcade game.
+Browser-Based Arcade Interface
 
-📌 About
+Overview
 
-The game is developed using HTML, CSS, and JavaScript. It features a retro pixel-style interface with 10 different mini-games.
+This directory contains the main software component of Arduino Pixel Arcade. The application is a browser-based retro gaming platform featuring ten integrated mini-games.
 
-Players can interact with the games using keyboard controls or a connected Arduino controller through the Web Serial API.
+Developed using HTML, CSS, and JavaScript, the application provides the graphical interface, game logic, input handling, and communication interface for the external Arduino controller.
 
-🎯 Included Games
+Features
 
-- Snake
-- Tetris
-- Breakout
-- Flappy
-- Pac-Man
-- Donkey Kong
-- Frogger
-- Space Invaders
-- Up & Down
-- Tapper
+- Ten arcade-style mini-games.
+- Retro-inspired graphical interface.
+- Keyboard-based input.
+- Arduino controller integration.
+- Web Serial communication.
+- Sound and music controls.
+- Fullscreen functionality.
+- High-score persistence through browser local storage.
 
-✨ Features
+Included Games
 
-- Retro arcade interface
-- Multiple mini-games
-- Keyboard input
-- Arduino controller support
-- Sound and music
-- Fullscreen mode
-- High-score saving
+1. Snake
+2. Tetris
+3. Breakout
+4. Flappy
+5. Pac-Man
+6. Donkey Kong
+7. Frogger
+8. Space Invaders
+9. Up & Down
+10. Tapper
 
-🚀 How to Run
+Input Methods
 
-1. Open "index.html" in Google Chrome or Microsoft Edge.
-2. Select a game from the main menu.
-3. Use the keyboard to play.
-4. Connect the Arduino controller to use physical buttons.
+Keyboard Input
 
-🎮 Controls
-
-Key| Function
-Arrow Keys / WASD| Movement
+Input| Function
+Arrow Keys / WASD| Gameplay movement
 M| Toggle sound
 Escape| Return to menu
 
-📂 File
+Arduino Controller
 
-- "index.html" – Main arcade game containing the game interface and gameplay code.
+The application supports a four-button Arduino controller through the browser's Web Serial API.
 
-🔗 Hardware Integration
+The expected serial communication speed is 115200 baud.
 
-The game communicates with the Arduino controller using the Web Serial API at 115200 baud.
+Serial Character| Input
+U| Up
+D| Down
+L| Left
+R| Right
 
-The controller sends directional commands to the browser when its buttons are pressed.
+Execution
+
+1. Open "index.html" using Google Chrome or Microsoft Edge.
+2. Connect the Arduino controller through USB if hardware input is required.
+3. Use the application's controller connection option.
+4. Select a game from the main menu.
+
+Compatibility: The physical controller requires browser support for the Web Serial API. Keyboard gameplay does not require an Arduino connection.
+
+File Description
+
+File| Description
+"index.html"| Main arcade application containing the interface, styling, and game logic.
+
+Integration
+
+The game application communicates with the Arduino firmware through USB serial communication. Incoming directional commands are interpreted as controller inputs during gameplay.
