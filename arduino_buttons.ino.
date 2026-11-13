@@ -1,0 +1,69 @@
+
+/*
+ * Arduino Pixel Arcade
+ * Four-Button Controller Firmware
+ *
+ * Board: Arduino Uno
+ * Communication: USB Serial
+ * Baud Rate: 115200
+ */
+
+const int UP_BUTTON = 2;
+const int DOWN_BUTTON = 3;
+const int LEFT_BUTTON = 4;
+const int RIGHT_BUTTON = 5;
+
+const unsigned long DEBOUNCE_DELAY = 25;
+
+struct Button {
+  int pin;
+  char command;
+  int lastReading;
+  int stableState;
+  unsigned long lastDebounceTime;
+};
+
+Button buttons[] = {
+  {UP_BUTTON, 'U', HIGH, HIGH, 0},
+  {DOWN_BUTTON, 'D', HIGH, HIGH, 0},
+  {LEFT_BUTTON, 'L', HIGH, HIGH, 0},
+  {RIGHT_BUTTON, 'R', HIGH, HIGH, 0}
+};
+
+const int BUTTON_COUNT = 4;
+
+void setup() {
+  Serial.begin(115200);
+
+  for (int i = 0; i < BUTTON_COUNT; i++) {
+    pinMode(buttons[i].pin, INPUT_PULLUP);
+  }
+}
+
+void loop() {
+  for (int i = 0; i < BUTTON_COUNT; i++) {
+    readButton(buttons[i]);
+  }
+}
+
+void readButton(Button &button) {
+  int reading = digitalRead(button.pin);
+
+  if (reading != button.lastReading) {
+    button.lastDebounceTime = millis();
+  }
+
+  if (millis() - button.lastDebounceTime > DEBOUNCE_DELAY) {
+
+    if (reading != button.stableState) {
+      button.stableState = reading;
+
+      // INPUT_PULLUP means LOW indicates a press.
+      if (button.stableState == LOW) {
+        Serial.println(button.command);
+      }
+    }
+  }
+
+  button.lastReading = reading;
+}
