@@ -1,44 +1,65 @@
-📚 Project Documentation
+Technical Documentation
 
-This folder contains additional technical documentation for the Arduino Pixel Arcade project.
+Arduino Pixel Arcade – System Documentation
 
-📌 Purpose
+Overview
 
-The documentation explains the hardware connections, controller setup, software communication, and other technical details.
+This directory is intended for the technical documentation of Arduino Pixel Arcade.
 
-📄 Suggested Documentation
+It provides supporting information about the hardware configuration, firmware operation, serial communication protocol, and software setup.
 
-1. Wiring Connections
+Documentation Sections
 
-Details about connecting the four push buttons to the Arduino board.
+Hardware Connections
 
-2. Controller Setup
+Documents the electrical connections between the four physical push buttons and the Arduino-compatible development board.
 
-Instructions for assembling and preparing the physical arcade controller.
+Controller Configuration
 
-3. Serial Communication
+Describes the digital input configuration, button mapping, and internal pull-up resistor implementation.
 
-Information about how the Arduino sends button commands to the browser through USB Serial communication.
+Serial Communication
 
-4. Game Setup
+Explains the communication interface between the Arduino firmware and the browser-based application.
 
-Instructions for opening the arcade game and connecting the physical controller.
+Software Setup
 
-🔌 Controller Pin Configuration
+Provides instructions for launching the arcade application and connecting the physical controller.
 
-Direction| Arduino Pin
+Hardware Pin Mapping
+
+Input| Arduino Pin
 Up| D2
 Down| D3
 Left| D4
 Right| D5
 
-📡 Communication Settings
+Serial Communication Specifications
 
-- Communication method: USB Serial
-- Baud rate: 115200
-- Data format: U, D, L, R
-- Browser interface: Web Serial API
+Parameter| Value
+Interface| USB Serial
+Baud rate| 115200
+Directional commands| U, D, L, R
+Message termination| Newline
 
-🎯 Objective
+System Workflow
 
-The purpose of this folder is to provide clear technical information so that others can understand, assemble, run, and improve the project.
+1. The user presses a physical controller button.
+2. The Arduino firmware detects the input.
+3. The firmware transmits the corresponding directional character.
+4. The browser receives the serial data through the Web Serial API.
+5. The arcade application processes the input during gameplay.
+
+Technical References
+
+Component| Description
+Arduino Firmware| Reads physical controller inputs
+USB Serial| Transfers directional commands
+Web Serial API| Enables browser-to-device serial communication
+Game Application| Processes input and runs the mini-games
+
+Documentation Scope
+
+Additional technical documents, wiring diagrams, connection references, and implementation notes can be added to this directory as the project develops.
+
+Purpose: To make the system easier to understand, reproduce, maintain, and extend.
