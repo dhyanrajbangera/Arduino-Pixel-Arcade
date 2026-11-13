@@ -1,83 +1,119 @@
-🎮 Arduino Pixel Arcade
+Arduino Pixel Arcade
 
-A retro-style browser-based arcade featuring 10 classic mini-games, an Arduino-powered 4-button controller, and a custom interface using the Web Serial API.
+A Browser-Based Retro Arcade with an Arduino-Powered Physical Controller
 
-🕹️ About the Project
+Arduino Pixel Arcade is an interactive retro gaming project that combines browser-based game development with physical hardware integration. It features ten arcade-style mini-games and supports both keyboard input and a custom four-button Arduino controller through the Web Serial API.
 
-Arduino Pixel Arcade brings classic arcade gaming together with physical hardware. Players can enjoy multiple mini-games directly in a web browser using either keyboard controls or a connected Arduino controller.
+The project demonstrates the integration of embedded systems, web technologies, and human-computer interaction in a unified gaming platform.
 
-The project combines web development, Arduino programming, and hardware interaction to create an interactive gaming experience.
+Project Overview
 
-✨ Features
+The system consists of two primary components:
 
-- 10 classic arcade mini-games
-- Retro pixel-style interface
-- Arduino-based 4-button controller
-- Browser communication through the Web Serial API
-- Keyboard controls
-- Sound and music
-- Fullscreen mode
-- High-score tracking using browser local storage
+- Game Interface: A browser-based arcade application developed using HTML, CSS, and JavaScript.
+- Physical Controller: An Arduino-based input system that reads four push buttons and transmits directional commands to the browser over USB serial communication.
 
-🎯 Included Mini-Games
+Key Features
 
-1. Snake
-2. Tetris
-3. Breakout
-4. Flappy
-5. Pac-Man
-6. Donkey Kong
-7. Frogger
-8. Space Invaders
-9. Up & Down
-10. Tapper
+- Ten integrated arcade-style mini-games.
+- Custom four-button physical controller.
+- Browser-to-Arduino communication using the Web Serial API.
+- Keyboard-based gameplay support.
+- Retro-inspired graphical interface.
+- Sound and music controls.
+- Fullscreen gameplay support.
+- Persistent high-score storage using browser local storage.
 
-🔧 Hardware Components
+Game Collection
 
-- Arduino-compatible development board
-- 4 push buttons
-- Jumper wires
-- USB cable
-- Computer with a compatible browser
+No.| Game| Gameplay Concept
+01| Snake| Eat and grow while avoiding collisions.
+02| Tetris| Arrange falling blocks to complete lines.
+03| Breakout| Destroy bricks using a bouncing ball.
+04| Flappy| Navigate through obstacles.
+05| Pac-Man| Collect dots while avoiding enemies.
+06| Donkey Kong| Climb platforms and avoid obstacles.
+07| Frogger| Navigate across roads and rivers.
+08| Space Invaders| Defend against incoming enemies.
+09| Up & Down| Navigate between moving tracks.
+10| Tapper| Serve customers across multiple counters.
 
-🔌 Controller Connections
+Hardware Architecture
 
-Button| Arduino Pin
+The physical controller uses four push buttons connected to digital input pins on an Arduino-compatible development board.
+
+Controller Input| Arduino Pin
 Up| D2
 Down| D3
 Left| D4
 Right| D5
 
-The firmware uses the Arduino "INPUT_PULLUP" configuration. Each button connects its assigned pin to GND when pressed.
+The firmware uses the internal pull-up configuration ("INPUT_PULLUP"). Each button is connected between its assigned digital pin and GND.
 
-💻 Software Requirements
+Software Architecture
 
-- Google Chrome or Microsoft Edge for Web Serial support
-- Arduino IDE
-- USB connection to the Arduino controller
+Component| Technology
+Game interface| HTML
+Styling| CSS
+Game logic| JavaScript
+Hardware firmware| Arduino C/C++
+Communication| Web Serial API
+High-score storage| Browser Local Storage
 
-🚀 How to Run
+Communication Protocol
 
-1. Download or clone this repository.
-2. Open the "Game" folder.
-3. Open "index.html" in a compatible browser.
-4. Connect the Arduino controller through USB.
-5. Upload the firmware from the "Firmware" folder to your Arduino board.
-6. Select the controller connection option in the game.
-7. Start playing!
+The Arduino controller transmits directional characters over USB serial communication at 115200 baud.
 
-Note: Web Serial support is required for the physical controller. Keyboard controls can be used without connecting the Arduino.
+Input| Serial Character
+Up| "U"
+Down| "D"
+Left| "L"
+Right| "R"
 
-🎮 Controls
+The browser reads these commands through the Web Serial API and uses them as gameplay inputs.
 
-Key| Action
-Arrow Keys / WASD| Movement and gameplay
+Getting Started
+
+Requirements
+
+- Arduino-compatible development board.
+- Four push buttons.
+- Jumper wires.
+- USB cable.
+- Arduino IDE.
+- Google Chrome or Microsoft Edge with Web Serial support.
+
+Installation and Setup
+
+1. Clone the repository
+
+git clone https://github.com/YOUR-USERNAME/Arduino-Pixel-Arcade.git
+
+2. Upload the firmware
+
+- Open "Firmware/arduino_buttons.ino" in Arduino IDE.
+- Connect the Arduino board.
+- Select the appropriate board and port.
+- Upload the firmware.
+
+3. Launch the game
+
+- Open "Game/index.html" in a compatible browser.
+- Connect the Arduino controller using the game's connection option.
+- Select a mini-game and begin playing.
+
+Keyboard controls remain available without the physical controller.
+
+Keyboard Controls
+
+Key| Function
+Arrow Keys / WASD| Gameplay movement
 M| Toggle sound
-Escape| Return to the game menu
+Escape| Return to the main menu
 
-Menu navigation uses the directional keys, with Right to select and Left to go back.
+Menu navigation uses directional keys, with Right to select and Left to go back.
 
-📁 Repository Structure
+Repository Structure
 
 Arduino-Pixel-Arcade/
 │
@@ -97,27 +133,27 @@ Arduino-Pixel-Arcade/
 └── Documentation/
     └── README.md
 
-🧠 Technologies Used
+Project Objectives
 
-- HTML
-- CSS
-- JavaScript
-- Arduino
-- C/C++
-- Web Serial API
+- Develop a multi-game browser-based arcade platform.
+- Integrate physical hardware with a web application.
+- Implement serial communication between an Arduino and a browser.
+- Explore embedded programming and interactive system design.
+- Demonstrate practical hardware-software integration.
 
-🎯 Project Objective
+Future Development
 
-The objective of this project is to combine browser-based game development with physical hardware interaction, creating an accessible retro arcade experience using an Arduino-powered controller.
+- Expand the physical controller with additional inputs.
+- Introduce further arcade games.
+- Improve controller ergonomics and enclosure design.
+- Enhance the interface and gameplay experience.
+- Expand technical documentation.
 
-🔮 Future Improvements
+Project Status
 
-- Add more arcade games
-- Improve the physical controller design
-- Add additional buttons and controls
-- Improve the user interface
-- Add more customization options
+The project includes a browser-based arcade application and Arduino firmware for a four-button controller.
 
 ---
 
-Developed as a hardware and software integration project.
+Arduino Pixel Arcade
+Combining retro gaming, embedded systems, and interactive technology.
